@@ -1,25 +1,40 @@
-# 🔐 Secure Coding Review – Flask Web Application
+# Secure Coding Review
+&nbsp;
+&nbsp;
 
-This project involves a secure code review of a sample **Python Flask web application**. It includes analysis of code vulnerabilities, recommendations for secure coding practices, and the use of a static code analyzer (Bandit) to detect security flaws.
+## Overview
+This project is a Flask web application that demonstrates common security vulnerabilities and their mitigations. It serves as a guide for developers to understand secure coding practices.
+&nbsp;
+&nbsp;
 
----
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Vulnerabilities Demonstrated](#vulnerabilities-demonstrated)
+  - [SQL Injection](#sql-injection)
+  - [Command Injection](#command-injection)
+  - [Cross-Site Scripting (XSS)](#cross-site-scripting-xss)
+  - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
+  - [Insecure Deserialization](#insecure-deserialization)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+&nbsp;
+&nbsp;
 
-## 📌 Objective
-
-To review a Python Flask application for common security vulnerabilities and apply best practices for secure coding, both through **manual inspection** and **automated static analysis**.
-
----
-
-## 🛠 Technologies Used
-
-- Python 3.x
+## Technologies Used
+- Python
 - Flask
-- SQLite (for demonstration)
-- Werkzeug (for password hashing)
 - Flask-WTF (for CSRF protection)
-- Bandit (static code analyzer)
+- SQLAlchemy (for database interactions)
+&nbsp;
+&nbsp;
 
----
+## Vulnerabilities Demonstrated
+&nbsp;
+&nbsp;
 
-## 📂 Project Structure
-
+### SQL Injection
+- **Vulnerable Code**: 
+  ```python
+  query = "SELECT * FROM users WHERE id = {}".format(user_input)  # BAD
